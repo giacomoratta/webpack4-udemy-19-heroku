@@ -1,3 +1,7 @@
 node_modules
 *.log
 notes
+package-lock.json
+notes
+dist
+.idea
