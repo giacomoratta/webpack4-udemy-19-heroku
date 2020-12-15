@@ -17,6 +17,13 @@
 
 ### Deploy on Heroku
 1. Configure the repository for heroku: https://devcenter.heroku.com/articles/git
-1. `git remote -v` - check the current status
-1. `heroku git:remote -a <app-name>` - add the remote branch
+   1. `git remote -v` - check the current status
+   1. `heroku git:remote -a <app-name>` - add the remote branch
+1. Configure multiple remotes: https://jigarius.com/blog/multiple-git-remote-repositories
+   1. `git remote add all git@github.com:giacomoratta/webpack4-udemy-19-heroku.git`
+   1. `git remote set-url --add --push all git@github.com:giacomoratta/webpack4-udemy-19-heroku.git`
+   1. `git remote set-url --add --push all https://git.heroku.com/dry-beach-59238.git`
 1. `git push heroku master:master` - push on `heroku` remote repo the local `master:` branch on the remote `:master` branch
+   1. or `git push all master` - 'master' or the branch name
+   1. or `git push origin master` - 'master' or the branch name
+   1. or `git push heroku master` - 'master' or the branch name
