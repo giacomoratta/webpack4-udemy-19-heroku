@@ -49,3 +49,5 @@ We want to solve the problem of blank page until the CSS is loaded.
    - test library with `$ minify src/main.js -d dist/`
 - `npm install babel-minify-webpack-plugin` (in order to use that package with webpack)
    - the js bundle is now very smaller and it is more difficult to do reverse engineering on it
+- `npm install uglifyjs-webpack-plugin`
+- minify and uglify can produce similar sizes for js bundles
