@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const MinifyPlugin = require('babel-minify-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -84,6 +85,7 @@ module.exports = {
       template: './src/index.ejs',
       inject: true,
       title: "Link's Journal"
-    })
+    }),
+    new MinifyPlugin()
   ]
 }

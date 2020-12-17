@@ -43,3 +43,9 @@ We want to solve the problem of blank page until the CSS is loaded.
 - clean main.js and move commented requires to `config/webpack.env.js` (which is the only one who needs of them, for dev purposes)
 - add ENV variables with `webpack.DefinePlugin`
 - scripts in `package.json` anyway needs of `NODE_ENV=production` for some reason, otherwise they will work in development mode
+
+### (lect.22) JS optimization for Production
+- `npm install babel-minify`
+   - test library with `$ minify src/main.js -d dist/`
+- `npm install babel-minify-webpack-plugin` (in order to use that package with webpack)
+   - the js bundle is now very smaller and it is more difficult to do reverse engineering on it
