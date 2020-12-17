@@ -27,8 +27,10 @@ if (!isProd) {
 
 // In production, heroku will use only files in dist directory
 // ...but we need to build them first: npm run build
-const staticMiddleware = express.static('dist')
-server.use(staticMiddleware)
+// (replaced with gzip support) const staticMiddleware = express.static('dist')
+// (replaced with gzip support) server.use(staticMiddleware)
+const expressStaticGzip = require('express-static-gzip')
+server.use(expressStaticGzip('dist'))
 
 // env.PORT set by heroku
 const PORT = process.env.PORT || 8080

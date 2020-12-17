@@ -51,3 +51,11 @@ We want to solve the problem of blank page until the CSS is loaded.
    - the js bundle is now very smaller and it is more difficult to do reverse engineering on it
 - `npm install uglifyjs-webpack-plugin`
 - minify and uglify can produce similar sizes for js bundles
+
+### (lect.23) Asset optimization for Production
+- `npm install compression-webpack-plugin` (6.1.1 is the latest for webpack4)
+- `heroku local` - in network analysis, we see `.gz` files are not served!
+   - heroku server does not support this content-type
+   - we need to support it on 'express' level
+   - `npm install express-static-gzip`
+   - all response headers changed `content-encoding` to 'gzip', and `content-type` is the specific type (e.g. css, js, html)

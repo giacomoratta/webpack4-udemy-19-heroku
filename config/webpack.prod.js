@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MinifyPlugin = require('babel-minify-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -88,6 +89,9 @@ module.exports = {
       title: "Link's Journal"
     }),
     new MinifyPlugin(),
-    new UglifyJsPlugin()
+    new UglifyJsPlugin(),
+    new CompressionPlugin({
+      algorithm: 'gzip'
+    })
   ]
 }
