@@ -1,6 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
@@ -21,6 +23,8 @@ module.exports = {
     }
   },
   module: {
+
+    /* Rules which affects single files */
     rules: [
       {
         test: /\.js$/,
@@ -35,10 +39,11 @@ module.exports = {
         test: /\.css$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: MiniCssExtractPlugin.loader
           },
           {
-            loader: 'css-loader'
+            loader: 'css-loader',
+            // options: { minimize: true } << there is a better solution for this!
           }
         ]
       },
@@ -63,7 +68,13 @@ module.exports = {
       }
     ]
   },
+
+  /* Plugins affect the entire bundle */
   plugins: [
+    new OptimizeCssAssetsPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name]-[contenthash].css'
+    }),
     new HTMLWebpackPlugin({
       template: './src/index.ejs',
       inject: true,

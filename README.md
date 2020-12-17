@@ -32,3 +32,9 @@
 We want to solve the problem of blank page until the CSS is loaded.
 1. `npm install mini-css-extract-plugin`
 1. create `config/webpack.prod.js`
+1. setup the plugin as loader for css
+1. minimize css
+   1. `options.minimize = true` might be a solution but there is a better one!
+   1. move to 'Plugin' section in order to affect the entire bundle
+   1. `npm install optimize-css-assets-webpack-plugin`
+   1. this plugin will create one single css with less and optimized rules (e.g. combined and no duplications)
