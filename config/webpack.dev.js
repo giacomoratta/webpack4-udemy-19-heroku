@@ -1,11 +1,14 @@
 const path = require('path')
 const webpack = require('webpack')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
-const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   entry: {
-    main: ['./src/main.js']
+    main: [
+      'babel-runtime/regenerator',
+      'webpack-hot-middleware/client?reload=true',
+      './src/main.js'
+    ]
   },
   mode: 'development',
   output: {
@@ -64,7 +67,13 @@ module.exports = {
     ]
   },
   plugins: [
-    // new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development'),
+        CUSTOM_VAR1: JSON.stringify('value1-dev'),
+      }
+    }),
     new HTMLWebpackPlugin({
       template: './src/index.ejs',
       inject: true,

@@ -1,13 +1,13 @@
 (Cloned from `19-heroku-init`)
 
-### Setup the project
+### (lect.19) Setup the project
 1. Install heroku CLI
 1. `heroku login`
 1. `heroku create` - it will create a new app accessible from the browser
 1. `heroku config:set NODE_ENV=production -a <app-name>`
 1. `heroku config -a <app-name>` - show all env variables
 
-### Build and run locally
+### (lect.19) Build and run locally
 1. The project will use webpack middleware for DEV mode only
 1. Build the static distribution files: `npm run build`
 1. Run production version locally:
@@ -15,7 +15,7 @@
    1. set a `Procfile` for heroku in order to state the command to use for running the app
    1. run `heroku local` - test the same versions is going to be deployed
 
-### Deploy on Heroku
+### (lect.19) Deploy on Heroku
 1. Configure the repository for heroku: https://devcenter.heroku.com/articles/git
    1. `git remote -v` - check the current status
    1. `heroku git:remote -a <app-name>` - add the remote branch
@@ -28,7 +28,7 @@
    1. or `git push origin master` - 'master' or the branch name
    1. or `git push heroku master` - 'master' or the branch name
    
-### CSS for Production
+### (lect.20) CSS for Production
 We want to solve the problem of blank page until the CSS is loaded.
 1. `npm install mini-css-extract-plugin`
 1. create `config/webpack.prod.js`
@@ -38,3 +38,8 @@ We want to solve the problem of blank page until the CSS is loaded.
    1. move to 'Plugin' section in order to affect the entire bundle
    1. `npm install optimize-css-assets-webpack-plugin`
    1. this plugin will create one single css with less and optimized rules (e.g. combined and no duplications)
+
+### (lect.21) Different ENV with Webpack
+- clean main.js and move commented requires to `config/webpack.env.js` (which is the only one who needs of them, for dev purposes)
+- add ENV variables with `webpack.DefinePlugin`
+- scripts in `package.json` anyway needs of `NODE_ENV=production` for some reason, otherwise they will work in development mode
