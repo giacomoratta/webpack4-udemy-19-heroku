@@ -27,3 +27,8 @@
    1. or `git push all master` - 'master' or the branch name
    1. or `git push origin master` - 'master' or the branch name
    1. or `git push heroku master` - 'master' or the branch name
+   
+### CSS for Production
+We want to solve the problem of blank page until the CSS is loaded.
+1. `npm install mini-css-extract-plugin`
+1. create `config/webpack.prod.js`
