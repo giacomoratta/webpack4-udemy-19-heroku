@@ -30,7 +30,9 @@ if (!isProd) {
 // (replaced with gzip support) const staticMiddleware = express.static('dist')
 // (replaced with gzip support) server.use(staticMiddleware)
 const expressStaticGzip = require('express-static-gzip')
-server.use(expressStaticGzip('dist'))
+server.use(expressStaticGzip('dist', {
+  enableBrotli: true
+}))
 
 // env.PORT set by heroku
 const PORT = process.env.PORT || 8080

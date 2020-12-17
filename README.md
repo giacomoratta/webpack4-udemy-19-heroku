@@ -59,3 +59,6 @@ We want to solve the problem of blank page until the CSS is loaded.
    - we need to support it on 'express' level
    - `npm install express-static-gzip`
    - all response headers changed `content-encoding` to 'gzip', and `content-type` is the specific type (e.g. css, js, html)
+- better compression with 'brotli'
+   - `npm install brotli-webpack-plugin` 
+
