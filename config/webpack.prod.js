@@ -10,7 +10,8 @@ const BrotliPlugin = require('brotli-webpack-plugin')
 
 module.exports = {
   entry: {
-    main: ['./src/main.js']
+    main: ['./src/main.js'],
+    other: ['./src/main.js']
   },
   mode: 'production',
   output: {

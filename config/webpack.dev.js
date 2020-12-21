@@ -1,10 +1,17 @@
 const path = require('path')
 const webpack = require('webpack')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
   entry: {
     main: [
+      'react-hot-loader/patch',
+      'babel-runtime/regenerator',
+      'webpack-hot-middleware/client?reload=true',
+      './src/main.js'
+    ],
+    other: [
       'react-hot-loader/patch',
       'babel-runtime/regenerator',
       'webpack-hot-middleware/client?reload=true',
@@ -22,6 +29,19 @@ module.exports = {
     overlay: true,
     stats: {
       colors: true
+    }
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          name: 'vendor',
+          chunks: 'initial',
+          minChunks: 2
+        }
+
+      }
     }
   },
   module: {
@@ -93,6 +113,9 @@ module.exports = {
       template: './src/index.ejs',
       inject: true,
       title: "Link's Journal"
+    }),
+    new BundleAnalyzerPlugin({
+      generateStatsFile: true
     })
   ]
 }
