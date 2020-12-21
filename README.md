@@ -1,3 +1,5 @@
+# Optimize (and deploy) a Webpack project for Production
+
 (Cloned from `19-heroku-init`)
 
 ### (lect.19) Setup the project
