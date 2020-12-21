@@ -45,7 +45,7 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader
           },
           {
-            loader: 'css-loader',
+            loader: 'css-loader'
             // options: { minimize: true } << there is a better solution for this!
           }
         ]
@@ -81,7 +81,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
-        CUSTOM_VAR1: JSON.stringify('value1-prod'),
+        CUSTOM_VAR1: JSON.stringify('value1-prod')
       }
     }),
     new HTMLWebpackPlugin({

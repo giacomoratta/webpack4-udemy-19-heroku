@@ -72,7 +72,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
-        CUSTOM_VAR1: JSON.stringify('value1-dev'),
+        CUSTOM_VAR1: JSON.stringify('value1-dev')
       }
     }),
     new HTMLWebpackPlugin({
