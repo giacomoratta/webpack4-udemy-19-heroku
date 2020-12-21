@@ -13,8 +13,9 @@ export default class extends React.Component {
     return (
       <div className='profile'>
         <img src={require('../images/link.jpg')} />
-        <h1>{this.props.heading}</h1>
-        <div className='content' dangerouslySetInnerHTML={{ __html: MarkdownData }} />
+        <h1>{MarkdownData.title}</h1>
+        <h2>{MarkdownData.author}</h2>
+        <div className='content' dangerouslySetInnerHTML={{ __html: MarkdownData.__content }} />
       </div>
     )
   }
